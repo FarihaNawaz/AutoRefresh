@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto</title>
+</head>
+<body>
+<div id="my-div">Auto refresh contents in 15 seconds</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            $.ajax({ url: "/dynamic.php", success: function (result) {
+                    $("#my-div").html(result);
+
+                }
+            });
+
+        }, 15000);
+
+    });
+
+</script>
+
+</body>
+</html>
